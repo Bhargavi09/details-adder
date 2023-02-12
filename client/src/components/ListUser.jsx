@@ -51,7 +51,7 @@ const ListUser = () => {
                               <td>{user.username}</td>
                               <td>{user.email}</td>
                               <td>
-                                  <EditUser user={user.user_id} />
+                                  <EditUser user={user} />
                               </td>
                               <td>
                                   <button onClick={() => deleteUser(user.user_id)}>
