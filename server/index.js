@@ -2,10 +2,13 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const pool = require("./db")
+const { app: { port } } = require('./config/config')
 
 //middleware
 app.use(cors())
 app.use(express.json())
+
+console.log()
 
 //ROUTES
 
@@ -79,6 +82,6 @@ app.delete('/users/:id', async (req, res) => {
     }
 })
 
-app.listen(5000, () => {
-    console.log("Listening on port 5000")
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`)
 })
