@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
-
+// import ExperienceCounter from './ExperienceCounter';
 const InputUser = () => {
 
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
+    const [experience, setExperience] = useState(0)
 
     const onSubmitForm = async e => {
         e.preventDefault();
@@ -43,7 +44,23 @@ const InputUser = () => {
                     onChange = { e => setEmail(e.target.value)}
                 />
 
+
                 <br />
+                Experience: 
+
+                <div>
+                    <button onClick={(e) => {
+                        e.preventDefault();
+                        setExperience(experience - 1)
+                    }} >-</button>
+                    <p>{experience}</p>
+                    <button onClick={(e) => {
+                        e.preventDefault();
+                        setExperience(experience + 1)
+                    }}>+</button>
+                </div>
+                <br />
+                
                 <button>Add</button>
             </form>
     </div>
