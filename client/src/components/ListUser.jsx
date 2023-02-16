@@ -40,6 +40,7 @@ const ListUser = () => {
                   <tr>
                       <th>Username</th>
                       <th>Email</th>
+                      <th>Experience</th>
                       <th>Edit</th>
                       <th>Delete</th>
                   </tr>
@@ -50,6 +51,7 @@ const ListUser = () => {
                           <tr key={user.user_id}>
                               <td>{user.username}</td>
                               <td>{user.email}</td>
+                              <td>{user.experience}</td>
                               <td>
                                   <EditUser user={user} />
                               </td>

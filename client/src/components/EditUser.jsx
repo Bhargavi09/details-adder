@@ -4,14 +4,15 @@ import { useState } from 'react'
 const EditUser = ({ user }) => {
 
     
-    const [username, setUsername] = useState(user.username);
-    const [email, setEmail] = useState(user.email);
+  const [username, setUsername] = useState(user.username);
+  const [email, setEmail] = useState(user.email);
+  const [experience, setExperience] = useState(user.experience);
 
 
     const editUser = async e => {
         e.preventDefault();
         try {
-            const body = { username, email }
+            const body = { username, email, experience }
             const response = await fetch(`http://localhost:5000/users/${user.user_id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
@@ -40,7 +41,8 @@ const EditUser = ({ user }) => {
               id={`id${user.user_id}`}
               onClick={() => {
                   setEmail(user.email)
-                  setUsername(user.username)
+                setUsername(user.username)
+                setExperience(user.experience)
               }}
           >
               <div class="modal-dialog">
@@ -54,6 +56,7 @@ const EditUser = ({ user }) => {
                 onClick={() => {
                   setEmail(user.email)
                   setUsername(user.username)
+                  setExperience(user.experience)
               }}
               >
                 &times;
@@ -74,6 +77,14 @@ const EditUser = ({ user }) => {
                 value={email}
                 onChange={e => setEmail(e.target.value)}
               />
+            
+
+             <input
+                type="text"
+                className="form-control"
+                value={experience}
+                onChange={e => setExperience(e.target.value)}
+              />
             </div>
 
             <div class="modal-footer">
@@ -92,6 +103,7 @@ const EditUser = ({ user }) => {
                 onClick={() => {
                   setEmail(user.email)
                   setUsername(user.username)
+                  setExperience(user.experience)
               }}
               >
                 Close

@@ -60,9 +60,9 @@ app.get('/users/:id', async (req, res) => {
 app.put('/users/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const { username, email } = req.body;
+        const { username, email, experience } = req.body;
         console.log(username, email)
-        const user = await pool.query("UPDATE details SET username = $1, email = $2 WHERE user_id = $3", [username, email, id])
+        const user = await pool.query("UPDATE details SET username = $1, email = $2, experience = $3 WHERE user_id = $4", [username, email, experience, id])
         res.json('User updated')
         
     } catch (error) {
