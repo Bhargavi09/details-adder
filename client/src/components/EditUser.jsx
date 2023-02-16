@@ -3,7 +3,6 @@ import { useState } from 'react'
 
 const EditUser = ({ user }) => {
 
-    console.log(user)
     
     const [username, setUsername] = useState(user.username);
     const [email, setEmail] = useState(user.email);

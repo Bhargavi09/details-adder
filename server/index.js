@@ -19,9 +19,9 @@ console.log()
 app.post('/users', async (req, res) => {
     
     try {
-        const { username, email } = req.body;
-        console.log(username, email)
-        const user = await pool.query("INSERT INTO details (username, email) VALUES($1,$2) RETURNING *", [username, email])
+        const { username, email, experience } = req.body;
+        console.log(username, email, experience)
+        const user = await pool.query("INSERT INTO details (username, email, experience) VALUES($1,$2, $3) RETURNING *", [username, email, experience])
         res.json(user.rows[0])
     } catch (err) {
         console.log(err.message)

@@ -6,10 +6,13 @@ const InputUser = () => {
     const [email, setEmail] = useState("");
     const [experience, setExperience] = useState(0)
 
+    
+
     const onSubmitForm = async e => {
         e.preventDefault();
         try {
-            const body = { username, email }
+            const body = { username, email, experience }
+            console.log(body)
             const response = await fetch("http://localhost:5000/users", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -28,7 +31,8 @@ const InputUser = () => {
     return (
       
 
-    <div>
+        <div class="container"> 
+            
             <form onSubmit={onSubmitForm}>
                 Name: 
                 <input type="text"
@@ -52,8 +56,13 @@ const InputUser = () => {
                     <button onClick={(e) => {
                         e.preventDefault();
                         setExperience(experience - 1)
+                        
                     }} >-</button>
-                    <p>{experience}</p>
+                     <input type="text"
+                    className='form-control'
+                    value={experience}
+                    onChange = { e => setExperience(e.target.value)}
+                />
                     <button onClick={(e) => {
                         e.preventDefault();
                         setExperience(experience + 1)
@@ -63,7 +72,9 @@ const InputUser = () => {
                 
                 <button>Add</button>
             </form>
-    </div>
+        </div>
+        
+        
   )
 }
 

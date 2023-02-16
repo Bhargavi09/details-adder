@@ -34,7 +34,7 @@ const ListUser = () => {
     }, [])
 
   return (
-      <div>
+      <div className='container'>
           <table class="table mt-5 text-center">
               <thead>
                   <tr>
