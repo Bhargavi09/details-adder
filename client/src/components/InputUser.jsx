@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 // import ExperienceCounter from './ExperienceCounter';
 const InputUser = () => {
 
+     //to be updated with react-form best practices 
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [experience, setExperience] = useState(0)
@@ -31,9 +32,9 @@ const InputUser = () => {
     return (
       
 
-        <div class="container"> 
-            
-            <form onSubmit={onSubmitForm}>
+        <div class="container" > 
+       
+            <form onSubmit={onSubmitForm} >
                 Name: 
                 <input type="text"
                     className='form-control'
@@ -47,26 +48,27 @@ const InputUser = () => {
                     value={email}
                     onChange = { e => setEmail(e.target.value)}
                 />
-
-
                 <br />
                 Experience: 
-
                 <div>
                     <button onClick={(e) => {
                         e.preventDefault();
-                        setExperience(experience - 1)
-                        
-                    }} >-</button>
+                        setExperience(experience > 0 ? experience - 1: 0)
+                    }} >
+                        -
+                    </button>
+
                      <input type="text"
-                    className='form-control'
-                    value={experience}
-                    onChange = { e => setExperience(e.target.value)}
-                />
+                        className='form-control'
+                        value={experience}
+                        onChange = { e => setExperience(e.target.value)}
+                    />
                     <button onClick={(e) => {
                         e.preventDefault();
                         setExperience(experience + 1)
-                    }}>+</button>
+                    }}>
+                        +
+                    </button>
                 </div>
                 <br />
                 

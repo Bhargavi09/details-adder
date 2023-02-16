@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 const EditUser = ({ user }) => {
 
-    
+   //to be updated with react-form best practices 
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [experience, setExperience] = useState(user.experience);
